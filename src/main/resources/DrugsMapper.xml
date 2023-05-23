@@ -13,13 +13,15 @@
     <result column="SUPPLYUNIT" property="supplyunit" jdbcType="VARCHAR" />
     <result column="PRODUCTUNIT" property="productunit" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    DRUGSID, NAME, PRICE, PURCHASEPRICE, NUM, INTRODUCEDATE, PRODUCTDATE, QUALITYPERIOD, 
-    SUPPLYUNIT, PRODUCTUNIT
-  </sql>
+<!--  <sql id="Base_Column_List" >-->
+<!--    DRUGSID, NAME, PRICE, PURCHASEPRICE, NUM, INTRODUCEDATE, PRODUCTDATE, QUALITYPERIOD, -->
+<!--    SUPPLYUNIT, PRODUCTUNIT-->
+<!--  </sql>-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="Base_Column_List" />
+<!--    <include refid="Base_Column_List" />-->
+    DRUGSID, NAME, PRICE, PURCHASEPRICE, NUM, INTRODUCEDATE, PRODUCTDATE, QUALITYPERIOD,
+    SUPPLYUNIT, PRODUCTUNIT
     from DRUGS
     where DRUGSID = #{drugsid,jdbcType=VARCHAR}
   </select>

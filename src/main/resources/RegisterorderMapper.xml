@@ -11,12 +11,13 @@
     <result column="STATUS" property="status" jdbcType="VARCHAR" />
     <result column="OPTIME" property="optime" jdbcType="DATE" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    ROID, MEMBERID, DEPARTID, DOCID, ROTIME, ROCHARGE, STATUS, OPTIME
-  </sql>
+<!--  <sql id="Base_Column_List" >-->
+<!--    ROID, MEMBERID, DEPARTID, DOCID, ROTIME, ROCHARGE, STATUS, OPTIME-->
+<!--  </sql>-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="Base_Column_List" />
+<!--    <include refid="Base_Column_List" />-->
+    ROID, MEMBERID, DEPARTID, DOCID, ROTIME, ROCHARGE, STATUS, OPTIME
     from REGISTERORDER
     where ROID = #{roid,jdbcType=VARCHAR}
   </select>

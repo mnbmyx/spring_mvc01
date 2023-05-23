@@ -11,12 +11,13 @@
     <result column="STATUS" property="status" jdbcType="VARCHAR" />
     <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    DAID, ROID, MEMBERID, DOCID, RESULTS, PRESCRIPTION, STATUS, CREATEDATE
-  </sql>
+<!--  <sql id="Base_Column_List" >-->
+<!--    DAID, ROID, MEMBERID, DOCID, RESULTS, PRESCRIPTION, STATUS, CREATEDATE-->
+<!--  </sql>-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="Base_Column_List" />
+<!--#     <include refid="Base_Column_List" />-->
+    DAID, ROID, MEMBERID, DOCID, RESULTS, PRESCRIPTION, STATUS, CREATEDATE
     from DOCTORADVICE
     where DAID = #{daid,jdbcType=VARCHAR}
   </select>

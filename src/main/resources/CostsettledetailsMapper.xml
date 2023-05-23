@@ -10,7 +10,8 @@
     <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
   </resultMap>
   <insert id="insert" parameterType="ssm.pojo.Costsettledetails" >
-    insert into COSTSETTLEDETAILS (ID, MEMBERID, ROID, 
+    insert into COSTSETTLEDETAILS (ID, MEMBERID, ROID,
+#     insert into costsettledetails (ID, MEMBERID, ROID,
       SETTLEAMOUNT, USERID, CREATEDATE
       )
     values (#{id,jdbcType=VARCHAR}, #{memberid,jdbcType=VARCHAR}, #{roid,jdbcType=VARCHAR}, 
@@ -19,6 +20,7 @@
   </insert>
   <insert id="insertSelective" parameterType="ssm.pojo.Costsettledetails" >
     insert into COSTSETTLEDETAILS
+#     insert into costsettledetails
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         ID,

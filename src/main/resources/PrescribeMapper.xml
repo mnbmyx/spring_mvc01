@@ -10,12 +10,13 @@
     <result column="STATUS" property="status" jdbcType="VARCHAR" />
     <result column="DESCS" property="descs" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    PRESCRIBEID, DAID, ROID, DRUGSID, NUM, STATUS, DESCS
-  </sql>
+<!--  <sql id="Base_Column_List" >-->
+<!--    PRESCRIBEID, DAID, ROID, DRUGSID, NUM, STATUS, DESCS-->
+<!--  </sql>-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="Base_Column_List" />
+<!--    <include refid="Base_Column_List" />-->
+    PRESCRIBEID, DAID, ROID, DRUGSID, NUM, STATUS, DESCS
     from PRESCRIBE
     where PRESCRIBEID = #{prescribeid,jdbcType=VARCHAR}
   </select>

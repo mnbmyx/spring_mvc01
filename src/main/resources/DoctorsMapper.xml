@@ -16,13 +16,15 @@
     <result column="ROCHARGE" property="rocharge" jdbcType="DECIMAL" />
     <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    DOCID, NAME, PASSWORD, ROLE, REALNAME, DEPARTID, POSITIONAL, SEX, AGE, TEL, ADDRESS, 
-    ROCHARGE, CREATEDATE
-  </sql>
+<!--  <sql id="Base_Column_List" >-->
+<!--    DOCID, NAME, PASSWORD, ROLE, REALNAME, DEPARTID, POSITIONAL, SEX, AGE, TEL, ADDRESS, -->
+<!--    ROCHARGE, CREATEDATE-->
+<!--  </sql>-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="Base_Column_List" />
+<!--    <include refid="Base_Column_List" />-->
+    DOCID, NAME, PASSWORD, ROLE, REALNAME, DEPARTID, POSITIONAL, SEX, AGE, TEL, ADDRESS,
+    ROCHARGE, CREATEDATE
     from DOCTORS
     where DOCID = #{docid,jdbcType=VARCHAR}
   </select>

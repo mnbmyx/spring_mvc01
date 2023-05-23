@@ -6,12 +6,13 @@
     <result column="DOCID" property="docid" jdbcType="VARCHAR" />
     <result column="DUTYDAY" property="dutyday" jdbcType="DATE" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    DDID, DOCID, DUTYDAY
-  </sql>
+<!--  <sql id="Base_Column_List" >-->
+<!--    DDID, DOCID, DUTYDAY-->
+<!--  </sql>-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="Base_Column_List" />
+<!--    <include refid="Base_Column_List" />-->
+    DDID, DOCID, DUTYDAY
     from DOCTORDUTY
     where DDID = #{ddid,jdbcType=VARCHAR}
   </select>

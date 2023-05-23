@@ -13,27 +13,36 @@
         <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
         <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
     </resultMap>
-    <sql id="Base_Column_List" >
-        ID, USERNAME, PASSWORD, ROLE, REALNAME, TEL, AGE, SEX, ADDRESS, CREATEDATE
-    </sql>
+<!--    <sql id="Base_Column_List" >-->
+<!--        ID, USERNAME, PASSWORD, ROLE, REALNAME, TEL, AGE, SEX, ADDRESS, CREATEDATE-->
+<!--    </sql>-->
 
-    <sql id="query_user_where">
-        <if test="id != '' and id != null">
-            and t.id like '%${id}%'
-        </if>
-        <if test="username != ''  and username != null">
-            and t.username like '%${username}%'
-        </if>
-        <if test="role != '' and role != null">
-            and t.role = '${role}'
-        </if>
-    </sql>
+<!--    <sql id="query_user_where">-->
+<!--        <if test="id != '' and id != null">-->
+<!--            and t.id like '%${id}%'-->
+<!--        </if>-->
+<!--        <if test="username != ''  and username != null">-->
+<!--            and t.username like '%${username}%'-->
+<!--        </if>-->
+<!--        <if test="role != '' and role != null">-->
+<!--            and t.role = '${role}'-->
+<!--        </if>-->
+<!--    </sql>-->
 
 
     <select id="getCounts" resultType="long" parameterType="java.util.HashMap">
         select count(*) from USERSSM  t
         <where>
-            <include refid="query_user_where"></include>
+            <if test="id != '' and id != null">
+                and t.id like '%${id}%'
+            </if>
+            <if test="username != ''  and username != null">
+                and t.username like '%${username}%'
+            </if>
+            <if test="role != '' and role != null">
+                and t.role = '${role}'
+            </if>
+<!--            <include refid="query_user_where"></include>-->
         </where>
     </select>
 
@@ -41,7 +50,17 @@
         <include refid="ssm.mapper.CommonMapper.pagingTop"></include>
         select * from USERSSM	t
         <where>
-            <include refid="query_user_where"></include>
+            <if test="id != '' and id != null">
+                and t.id like '%${id}%'
+            </if>
+            <if test="username != ''  and username != null">
+                and t.username like '%${username}%'
+            </if>
+            <if test="role != '' and role != null">
+                and t.role = '${role}'
+            </if>
+
+<!--            <include refid="query_user_where"></include>-->
         </where>
         <include refid="ssm.mapper.CommonMapper.pagingBottom"></include>
     </select>
@@ -57,7 +76,7 @@
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
         select
-        <include refid="Base_Column_List" />
+            ID, USERNAME, PASSWORD, ROLE, REALNAME, TEL, AGE, SEX, ADDRESS, CREATEDATE
         from USERSSM
         where ID = #{id,jdbcType=VARCHAR}
     </select>

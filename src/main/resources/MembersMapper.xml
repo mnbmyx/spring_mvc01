@@ -15,13 +15,15 @@
     <result column="ANAPHYLAXIS" property="anaphylaxis" jdbcType="VARCHAR" />
     <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    MEMBERID, NAME, PASSWORD, ROLE, REALNAME, CREDIT, SEX, AGE, TEL, BALANCE, ANAPHYLAXIS, 
-    CREATEDATE
-  </sql>
+<!--  <sql id="Base_Column_List" >-->
+<!--    MEMBERID, NAME, PASSWORD, ROLE, REALNAME, CREDIT, SEX, AGE, TEL, BALANCE, ANAPHYLAXIS, -->
+<!--    CREATEDATE-->
+<!--  </sql>-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="Base_Column_List" />
+<!--    <include refid="Base_Column_List" />-->
+    MEMBERID, NAME, PASSWORD, ROLE, REALNAME, CREDIT, SEX, AGE, TEL, BALANCE, ANAPHYLAXIS,
+    CREATEDATE
     from MEMBERS
     where MEMBERID = #{memberid,jdbcType=VARCHAR}
   </select>
